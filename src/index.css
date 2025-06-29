@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&family=Courier+Prime:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 120 100% 50%;
+    --card: 0 0% 0%;
+    --card-foreground: 120 100% 50%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 120 100% 50%;
+    --primary: 120 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 120 50% 5%;
+    --secondary-foreground: 120 100% 50%;
+    --muted: 120 50% 3%;
+    --muted-foreground: 120 50% 30%;
+    --accent: 120 50% 5%;
+    --accent-foreground: 120 100% 50%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 0%;
+    --border: 120 100% 50%;
+    --input: 120 50% 3%;
+    --ring: 120 100% 50%;
+    --radius: 0rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-black text-matrix-green font-terminal overflow-hidden;
+    background: #000000;
+    font-family: "VT323", "Courier Prime", monospace;
+    font-size: 16px;
+    line-height: 1.2;
+    /* Enhanced CRT scanlines effect */
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.03) 2px,
+      rgba(0, 255, 0, 0.03) 4px
+    );
+  }
+
+  /* Enhanced CRT flicker effect */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff00, transparent);
+    animation: scan-line 2s linear infinite;
+    z-index: 1000;
+    pointer-events: none;
+    box-shadow: 0 0 20px #00ff00;
+  }
+
+  /* Enhanced glow effects */
+  .terminal-glow {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00,
+      0 0 20px #00ff00;
+    color: #00ff00;
+  }
+
+  .window-glow {
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px #00ff00, inset 0 0 20px rgba(0, 255, 0, 0.1),
+      0 0 40px rgba(0, 255, 0, 0.3);
+    background: rgba(0, 0, 0, 0.95);
+  }
+
+  .button-glow {
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00, inset 0 0 10px rgba(0, 255, 0, 0.1);
+    background: rgba(0, 255, 0, 0.05);
+  }
+
+  .button-glow:hover {
+    box-shadow: 0 0 25px #00ff00, inset 0 0 15px rgba(0, 255, 0, 0.3);
+    background: rgba(0, 255, 0, 0.15);
+  }
+
+  /* Terminal cursor */
+  .terminal-cursor::after {
+    content: "█";
+    animation: blink 1s infinite;
+    color: #00ff00;
+  }
+
+  /* Enhanced scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000000;
+    border: 1px solid #00ff00;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 0;
+    box-shadow: 0 0 10px #00ff00;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00aa00;
+    box-shadow: 0 0 15px #00ff00;
+  }
+}
+
+@layer components {
+  .terminal-window {
+    @apply bg-black rounded-none;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.6),
+      inset 0 0 25px rgba(0, 255, 0, 0.1);
+    background: #000000;
+    font-family: "VT323", "Courier Prime", monospace;
+    cursor: move;
+  }
+
+  .terminal-header {
+    @apply bg-black border-b-2 border-matrix-green text-matrix-green font-terminal px-3 py-2 text-sm;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 255, 0, 0.15) 0%,
+      rgba(0, 255, 0, 0.05) 100%
+    );
+    text-shadow: 0 0 10px #00ff00;
+    font-family: "VT323", "Courier Prime", monospace;
+    cursor: move;
+  }
+
+  .terminal-input {
+    @apply bg-black border-2 border-matrix-green text-matrix-green font-terminal;
+    box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.3),
+      0 0 10px rgba(0, 255, 0, 0.4);
+    background: #000000;
+    font-family: "VT323", "Courier Prime", monospace;
+  }
+
+  .hacker-button {
+    @apply bg-black border-2 border-matrix-green text-matrix-green font-terminal px-6 py-3 transition-all;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4),
+      inset 0 0 10px rgba(0, 255, 0, 0.1);
+    background: #000000;
+    text-shadow: 0 0 5px #00ff00;
+    font-family: "VT323", "Courier Prime", monospace;
+    font-size: 14px;
+    clip-path: polygon(
+      0 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% 100%,
+      10px 100%,
+      0 calc(100% - 10px)
+    );
+  }
+
+  .hacker-button:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.8),
+      inset 0 0 20px rgba(0, 255, 0, 0.3);
+    background: rgba(0, 255, 0, 0.15);
+    text-shadow: 0 0 10px #00ff00;
+  }
+
+  .status-bar {
+    @apply bg-black border-t-2 border-matrix-green;
+    background: linear-gradient(180deg, rgba(0, 255, 0, 0.15) 0%, #000000 100%);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+    font-family: "VT323", "Courier Prime", monospace;
+  }
+
+  .background-terminal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    font-family: "VT323", "Courier Prime", monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    color: rgba(0, 255, 0, 0.3);
+    padding: 20px;
+    overflow: hidden;
+  }
+}
