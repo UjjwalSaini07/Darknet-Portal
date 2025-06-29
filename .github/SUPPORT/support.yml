@@ -1,0 +1,32 @@
+contact_links:
+  - name: 📖 Comprehensive Documentation
+    url: https://github.com/UjjwalSaini07/Darknet-Portal/wiki
+    about: Access detailed guides, FAQs, and setup instructions for Darknet-Portal.
+
+  - name: 💬 Community Forum
+    url: https://github.com/UjjwalSaini07/Darknet-Portal/discussions
+    about: Discuss ideas, ask questions, and share knowledge with the Darknet-Portal community.
+
+  - name: 🐞 Report an Issue
+    url: https://github.com/UjjwalSaini07/Darknet-Portal/issues/new?template=bug_report.yml
+    about: Found a bug or facing a problem? Let us know.
+
+  - name: 🌟 Suggest a Feature
+    url: https://github.com/UjjwalSaini07/Darknet-Portal/issues/new?template=feature_request.yml
+    about: Have a brilliant idea to enhance Darknet-Portal? Suggest it here.
+
+  - name: 🔐 Security Policy
+    url: https://github.com/UjjwalSaini07/Darknet-Portal/blob/main/SECURITY.md
+    about: Understand how to report security vulnerabilities responsibly.
+
+  - name: 🌐 Official Website
+    url: http://localhost:5173/
+    about: Explore more about Darknet-Portal, vision, and impact.
+
+  - name: 🛠 Technical Support
+    url: http://localhost:5173/support
+    about: Get personalized support for technical issues.
+
+  - name: 📝 Terms and Policies
+    url: http://localhost:5173/terms
+    about: Review our terms of service, privacy policy, and data usage guidelines.
