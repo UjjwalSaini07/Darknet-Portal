@@ -55,7 +55,37 @@ svg text {
   border-radius: 50%;
   margin-right: 8px;
   box-shadow: var(--glow);
+  animation: pulsate 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 10px var(--fg);
+  }
+  25% {
+    transform: scale(1.1);
+    opacity: 0.8;
+    box-shadow: 0 0 15px var(--fg);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+    box-shadow: 0 0 20px var(--fg);
+  }
+  75% {
+    transform: scale(1.1);
+    opacity: 0.8;
+    box-shadow: 0 0 15px var(--fg);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 10px var(--fg);
+  }
+}
+
 
 
 

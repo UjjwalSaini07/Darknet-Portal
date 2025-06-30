@@ -36,7 +36,7 @@ const LoadingScreen = () => {
   useEffect(() => {
     const phrases = shuffleArray(phrasesList).slice(0, 12); // Use a few lines only
     const phrasesGroup = phrasesRef.current;
-    const lineHeight = 40;
+    const lineHeight = 35;
     const checks = [];
 
     let currentY = 0;
@@ -134,7 +134,7 @@ const LoadingScreen = () => {
       </div>
       <div className="footer">
         <div className="logo" />
-        Hacker Terminal
+        Welcome Hacker Terminal
       </div>
     </div>
   );

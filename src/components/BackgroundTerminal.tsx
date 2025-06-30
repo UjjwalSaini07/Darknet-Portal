@@ -53,13 +53,11 @@ const BackgroundTerminal = () => {
   };
 
   useEffect(() => {
-    // Add initial lines
     const initialLines = Array.from({ length: 20 }, () =>
       generateRandomCommand()
     );
     setLines(initialLines);
 
-    // Auto-generate lines periodically
     const interval = setInterval(() => {
       setLines((prev) => {
         const newLines = [...prev];
@@ -78,7 +76,6 @@ const BackgroundTerminal = () => {
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      // Ignore special keys and function keys
       if (
         event.ctrlKey ||
         event.altKey ||
@@ -90,7 +87,6 @@ const BackgroundTerminal = () => {
 
       setCurrentInput((prev) => prev + event.key);
 
-      // Add typed input as command after a few characters
       if (currentInput.length > 8) {
         const timestamp = new Date().toLocaleTimeString();
         const newLine = `[${timestamp}] anonymous@matrix:~$ ${currentInput}${event.key}`;
@@ -101,7 +97,6 @@ const BackgroundTerminal = () => {
             newLines.shift();
           }
           newLines.push(newLine);
-          // Add a response
           newLines.push(`> ${generateRandomCode()}`);
           return newLines;
         });
@@ -115,24 +110,49 @@ const BackgroundTerminal = () => {
   }, [currentInput]);
 
   return (
-    <div className="background-terminal">
-      {lines.map((line, index) => (
-        <div
-          key={index}
-          className="mb-1"
-          style={{
-            opacity: Math.max(0.1, 1 - (lines.length - index) * 0.02),
-            textShadow: "0 0 3px #00FF00",
-          }}
-        >
-          {line}
-        </div>
-      ))}
-      {currentInput && (
-        <div className="terminal-glow">
-          [{new Date().toLocaleTimeString()}] typing: {currentInput}_
-        </div>
-      )}
+    <div
+      className="background-terminal"
+      style={{
+        height: "100vh",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+      }}
+    >
+      <div
+        style={{
+          flex: "1",
+          overflowY: "auto",
+          padding: "10px",
+        }}
+      >
+        {lines.map((line, index) => (
+          <div
+            key={index}
+            className="mb-1"
+            style={{
+              opacity: Math.max(0.1, 1 - (lines.length - index) * 0.02),
+              textShadow: "0 0 3px #00FF00",
+            }}
+          >
+            {line}
+          </div>
+        ))}
+      </div>
+      <div
+        className="terminal-glow"
+        style={{
+          backgroundColor: "#000",
+          padding: "5px 10px",
+          fontWeight: "bold",
+          color: "#00FF00",
+          textShadow: "0 0 5px #00FF00",
+          marginBottom: "30px",
+        }}
+      >
+        [{new Date().toLocaleTimeString()}] typing: {currentInput}_
+      </div>
     </div>
   );
 };
