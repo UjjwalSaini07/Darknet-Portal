@@ -1,0 +1,162 @@
+:root {
+  --bg: #000;
+  --fg: #00ff00;
+  --glow: 0 0 8px #00ff00;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+svg text {
+  filter: drop-shadow(0 0 2px #00ff00);
+  text-shadow: 0 0 2px #00ff00;
+  animation: flicker 2s infinite alternate;
+  letter-spacing: 1px;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  95% { opacity: 1; }
+  98% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.footer {
+  margin-top: 20px;
+  color: var(--fg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  text-shadow: var(--glow);
+}
+
+.logo {
+  width: 16px;
+  height: 16px;
+  background: var(--fg);
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: var(--glow);
+}
+
+
+
+
+
+/* ! this is Extra Temporary CSS... */
+/* :root {
+  --bg: #000;
+  --fg: #00ff00;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.phrase-box {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  height: 240px;
+  overflow: hidden;
+}
+
+.footer {
+  margin-top: 20px;
+  color: var(--fg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.logo {
+  width: 16px;
+  height: 16px;
+  background: var(--fg);
+  border-radius: 50%;
+  margin-right: 8px;
+} */
+
+
+/* ! Goood CSS */
+/* :root {
+  --bg: #000;
+  --fg: #00ff00;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  transition: opacity 1s;
+}
+
+.phrase-box {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.footer {
+  margin-top: 20px;
+  color: var(--fg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.logo {
+  width: 16px;
+  height: 16px;
+  background: var(--fg);
+  border-radius: 50%;
+  margin-right: 8px;
+} */
