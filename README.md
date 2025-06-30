@@ -8,7 +8,7 @@ Darknet-Portal is a cyberpunk-inspired hacker terminal site that lets you dive i
 [![GitHub stars](https://img.shields.io/github/stars/UjjwalSaini07/Darknet-Portal?style=social&label=Star&maxAge=2592100)](https://github.com/UjjwalSaini07/Darknet-Portal/stargazers)
 [![Github Release](https://img.shields.io/github/v/release/UjjwalSaini07/Darknet-Portal)](https://github.com/UjjwalSaini07/Darknet-Portal)
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=VT323&size=30&pause=1000&color=39D925E1&width=700&height=50&lines=This+Repository+is+for+Education+Purpose+Only+Don't+Misuse)](https://github.com/UjjwalSaini07/Darknet-Portal)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=28&pause=1000&color=F70707&width=850&lines=%E2%9A%A0%EF%B8%8FVisit+Darknet+Portal+At+Your+Own+Risk+%E2%9A%A0%EF%B8%8F)](https://git.io/typing-svg)
 <!--<img src="public/ReadMe/HackerSkull.gif?raw=true">-->
 ## Key Features 🎯
 - 🚀 **Cyberpunk Aesthetic:** Dive into a neon-lit, hacker-inspired interface straight out of a futuristic dystopia.
@@ -23,7 +23,7 @@ Darknet-Portal is a cyberpunk-inspired hacker terminal site that lets you dive i
 > [!WARNING]  
 > Visit that website **At your Own Risk** - DarkNet Portal is Dangerous for your System...
 
-You can visit the live site here - 
+You can visit the live site here - https://darknet-portal.vercel.app/
 
 ## Technologies Used 👨🏻‍💻
 - **TypeScript** – A statically typed superset of JavaScript that enhances code reliability and maintainability.  
@@ -31,6 +31,7 @@ You can visit the live site here -
 - **Docker** – A containerization platform enabling seamless deployment, scalability, and efficient application management.  
 
 ## Installation 🛠️
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=VT323&size=30&pause=1000&color=39D925E1&width=700&height=50&lines=This+Repository+is+for+Education+Purpose+Only+Don't+Misuse+It)](https://github.com/UjjwalSaini07/Darknet-Portal)
 - First Read this [License](https://github.com/UjjwalSaini07/Darknet-Portal/blob/main/LICENSE) & their terms then proceed.
 - Star the [Repository](https://github.com/UjjwalSaini07/Darknet-Portal) - Mandatory Step.
 - Clone the repository:
