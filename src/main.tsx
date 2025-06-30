@@ -21,7 +21,7 @@ const RootComponent = () => {
   return (
     <StrictMode>
       {isMobile ? <MobileApp /> : <App />}
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </StrictMode>
   );
 };

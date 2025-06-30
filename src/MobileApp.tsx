@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Preloader from "./components/effects/Preloader";
+import Preloader from "./components/effects/InitialPreloader";
 import { motion } from "framer-motion";
 
 const MobileApp: React.FC = () => {
