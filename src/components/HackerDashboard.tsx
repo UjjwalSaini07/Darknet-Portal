@@ -88,7 +88,7 @@ const HackerDashboard = () => {
           {activeModules.bitcoinMiner && (
             <BitcoinMiner
               onClose={() => closeModule("bitcoinMiner")}
-              initialPosition={{ x: 20, y: 0 }}
+              initialPosition={{ x: 520, y: 0 }}
             />
           )}
 

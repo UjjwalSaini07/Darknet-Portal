@@ -24,6 +24,11 @@ interface TaskBarProps {
   onToggleModule: (module: keyof TaskBarProps["activeModules"]) => void;
 }
 
+const fontStyle = {
+  fontFamily: "'Orbiton', sans-serif",
+  fontSize: "10px",
+};
+
 const TaskBar = ({ activeModules, onToggleModule }: TaskBarProps) => {
   const currentTime = new Date().toLocaleTimeString();
 
@@ -91,7 +96,9 @@ const TaskBar = ({ activeModules, onToggleModule }: TaskBarProps) => {
             title={module.title}
           >
             <module.icon size={16} />
-            <span className="text-xs font-bold">{module.name}</span>
+            <span className="text-xs font-bold" style={fontStyle}>
+              {module.name}
+            </span>
           </button>
         ))}
       </div>

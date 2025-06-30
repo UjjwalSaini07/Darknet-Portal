@@ -154,6 +154,26 @@ const BitcoinMiner = ({ onClose, initialPosition }: BitcoinMinerProps) => {
     return () => clearInterval(interval);
   }, [isRunning]);
 
+  useEffect(() => {
+    if (!isRunning) return;
+
+    const interval = setInterval(() => {
+      setGraphData((prevData) => {
+        const newVal = Math.max(
+          10,
+          Math.min(
+            100,
+            prevData[prevData.length - 1] + (Math.random() * 20 - 10)
+          )
+        );
+        const nextData = [...prevData.slice(1), newVal];
+        return nextData;
+      });
+    }, 300); // Adjust speed here
+
+    return () => clearInterval(interval);
+  }, [isRunning]);
+
   return (
     <div
       ref={elementRef}
@@ -380,73 +400,68 @@ const BitcoinMiner = ({ onClose, initialPosition }: BitcoinMinerProps) => {
                   {isRunning ? "ACTIVE MINING" : "MINING STOPPED"}
                 </span>
               </div>
-              <svg className="w-full h-24">
+              <svg
+                className="w-full h-24"
+                viewBox="0 0 100 100"
+                preserveAspectRatio="none"
+              >
                 <defs>
-                  <linearGradient
-                    id="hashGradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="0%"
-                    y2="100%"
-                  >
+                  <linearGradient id="hashGradient" x1="0" y1="0" x2="0" y2="1">
                     <stop
                       offset="0%"
-                      style={{
-                        stopColor: isRunning ? "#00FF00" : "#FF4444",
-                        stopOpacity: 0.8,
-                      }}
+                      stopColor={isRunning ? "#00FF00" : "#FF4444"}
+                      stopOpacity="0.8"
                     />
                     <stop
                       offset="100%"
-                      style={{
-                        stopColor: isRunning ? "#00FF00" : "#FF4444",
-                        stopOpacity: 0.1,
-                      }}
+                      stopColor={isRunning ? "#00FF00" : "#FF4444"}
+                      stopOpacity="0.1"
                     />
                   </linearGradient>
                 </defs>
 
-                {/* Grid lines */}
-                {[...Array(4)].map((_, i) => (
+                {/* Background grid */}
+                {[...Array(5)].map((_, i) => (
                   <line
                     key={i}
                     x1="0"
-                    y1={i * 24}
-                    x2="100%"
-                    y2={i * 24}
+                    y1={i * 25}
+                    x2="100"
+                    y2={i * 25}
                     stroke={isRunning ? "#00FF00" : "#FF4444"}
-                    strokeOpacity="0.2"
-                    strokeWidth="1"
+                    strokeOpacity="0.1"
+                    strokeWidth="0.5"
                   />
                 ))}
 
+                {/* Area fill */}
                 {graphData.length > 1 && (
                   <>
                     <polygon
                       fill="url(#hashGradient)"
-                      points={`0,96 ${graphData
+                      points={`0,100 ${graphData
                         .map(
-                          (value, index) =>
-                            `${(index / (graphData.length - 1)) * 100}%,${
-                              96 - (value / 100) * 90
+                          (val, idx) =>
+                            `${(idx / (graphData.length - 1)) * 100},${
+                              100 - (val / 100) * 90
                             }`
                         )
-                        .join(" ")} 100%,96`}
+                        .join(" ")} 100,100`}
                     />
                     <polyline
                       fill="none"
                       stroke={isRunning ? "#00FF00" : "#FF4444"}
-                      strokeWidth="2"
+                      strokeWidth="1.5"
                       points={graphData
                         .map(
-                          (value, index) =>
-                            `${(index / (graphData.length - 1)) * 100}%,${
-                              96 - (value / 100) * 90
+                          (val, idx) =>
+                            `${(idx / (graphData.length - 1)) * 100},${
+                              100 - (val / 100) * 90
                             }`
                         )
                         .join(" ")}
                       style={{
-                        filter: `drop-shadow(0 0 5px ${
+                        filter: `drop-shadow(0 0 3px ${
                           isRunning ? "#00FF00" : "#FF4444"
                         })`,
                       }}
@@ -460,32 +475,23 @@ const BitcoinMiner = ({ onClose, initialPosition }: BitcoinMinerProps) => {
             <div className="border-2 border-matrix-green bg-black p-3 h-32 relative overflow-hidden rounded">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-full h-full">
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`absolute opacity-70 ${
-                        isRunning
-                          ? "animate-bounce text-matrix-green"
-                          : "text-gray-500"
-                      }`}
-                      style={{
-                        left: `${5 + (i % 4) * 22}%`,
-                        top: `${10 + Math.floor(i / 4) * 25}%`,
-                        animationDelay: `${i * 0.15}s`,
-                        fontSize: `${10 + Math.random() * 6}px`,
-                        transform: `rotate(${Math.random() * 20 - 10}deg)`,
-                      }}
-                    >
-                      {["₿", "⚡", "💎", "🔥"][Math.floor(Math.random() * 4)]}
-                    </div>
-                  ))}
+                  <img
+                    src="/CryptoMining-animation.gif"
+                    alt="Crypto Mining Animation"
+                    className="absolute w-40 h-40 text-center object-cover opacity-70"
+                    style={{
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                    }}
+                  />
                   <div className="absolute bottom-2 right-2 text-xl animate-pulse">
                     <span
                       className={
                         isRunning ? "text-matrix-green" : "text-gray-500"
                       }
                     >
-                      ⛏️💻
+                      ⛏️
                     </span>
                   </div>
                   <div className="absolute top-2 left-2 text-xs terminal-glow">
