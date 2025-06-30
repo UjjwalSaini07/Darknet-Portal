@@ -1,0 +1,33 @@
+{
+  "viewport": "width=device-width, initial-scale=1.0",
+  "httpEquiv": "IE=edge",
+  "description": "Darknet-Portal is a cyberpunk-inspired hacker terminal site offering an immersive experience with tools like Crypto Miner, Password Cracker, Neural Network simulations, Surveillance systems, Compilers, Terminal commands, Camera access, and Satellite controls.",
+  "author": "UjjwalS aka DecryptX",
+  "keywords": "Darknet-Portal, cyberpunk, hacker terminal, crypto miner, password cracker, neural networks, surveillance, compilers, terminal commands, camera access, satellite control, digital exploration, security breaches, tech enthusiasts",
+  "og": {
+    "title": "Darknet-Portal: Cyberpunk Hacker Terminal",
+    "description": "Dive into the world of digital exploration and security breaches with Darknet-Portal — a cyberpunk-inspired platform packed with powerful hacking and surveillance tools.",
+    "image": "/hack1.png",
+    "url": "http://localhost:8080/",
+    "type": "website",
+    "locale": "en_US",
+    "site_name": "Darknet-Portal"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Darknet-Portal: Cyberpunk Hacker Terminal",
+    "description": "Explore futuristic hacking tools and digital breaches with Darknet-Portal, your cyberpunk playground for tech exploration and security thrills.",
+    "image": "/hack1.png",
+    "site": "@DarknetPortal",
+    "creator": "@UjjwalSaini0007"
+  },
+  "canonical": "http://localhost:8080/",
+  "robots": "index, follow",
+  "themeColor": "#0f0f0f, #1a1a1a",
+  "rating": "General",
+  "distribution": "Global",
+  "copyright": "Darknet-Portal ©2025",
+  "applicationName": "Darknet-Portal",
+  "appleMobileWebAppTitle": "Darknet-Portal",
+  "appleMobileWebAppCapable": "yes"
+}
