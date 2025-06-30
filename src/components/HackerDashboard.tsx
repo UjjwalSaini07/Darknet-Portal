@@ -13,13 +13,13 @@ import BackgroundTerminal from "./BackgroundTerminal";
 
 const HackerDashboard = () => {
   const [activeModules, setActiveModules] = useState({
-    bitcoinMiner: true,
+    bitcoinMiner: false,
     passwordCracker: true,
-    neuralNetwork: true,
+    neuralNetwork: false,
     surveillance: true,
     compiler: true,
-    terminal: true,
-    cameraSurveillance: false,
+    terminal: false,
+    cameraSurveillance: true,
     satelliteHacking: false,
   });
 
@@ -63,7 +63,7 @@ const HackerDashboard = () => {
         <div className="h-10 bg-black border-b-2 border-matrix-green flex items-center justify-between px-4 terminal-glow">
           <div className="flex items-center space-x-6">
             <span className="text-lg font-bold terminal-glow">
-              DARKNET_TERMINAL v3.1.7 [CLASSIFIED]
+              DARKNET_TERMINAL v1.1.0 [CLASSIFIED]
             </span>
             <span className="text-sm text-matrix-green">
               [{currentTime.toLocaleTimeString()}] [UTC-7] [SECURE_MODE]
@@ -88,7 +88,7 @@ const HackerDashboard = () => {
           {activeModules.bitcoinMiner && (
             <BitcoinMiner
               onClose={() => closeModule("bitcoinMiner")}
-              initialPosition={{ x: 50, y: 50 }}
+              initialPosition={{ x: 20, y: 0 }}
             />
           )}
 
@@ -96,7 +96,7 @@ const HackerDashboard = () => {
           {activeModules.passwordCracker && (
             <PasswordCracker
               onClose={() => closeModule("passwordCracker")}
-              initialPosition={{ x: 500, y: 50 }}
+              initialPosition={{ x: 1100, y: 50 }}
             />
           )}
 
@@ -104,7 +104,7 @@ const HackerDashboard = () => {
           {activeModules.neuralNetwork && (
             <NeuralNetwork
               onClose={() => closeModule("neuralNetwork")}
-              initialPosition={{ x: 50, y: 400 }}
+              initialPosition={{ x: 250, y: 80 }}
             />
           )}
 
@@ -112,7 +112,7 @@ const HackerDashboard = () => {
           {activeModules.compiler && (
             <CompilerSection
               onClose={() => closeModule("compiler")}
-              initialPosition={{ x: 600, y: 400 }}
+              initialPosition={{ x: 850, y: 200 }}
             />
           )}
 
@@ -120,7 +120,7 @@ const HackerDashboard = () => {
           {activeModules.terminal && (
             <HackerTerminal
               onClose={() => closeModule("terminal")}
-              initialPosition={{ x: 300, y: 200 }}
+              initialPosition={{ x: 350, y: 40 }}
             />
           )}
 
@@ -128,7 +128,7 @@ const HackerDashboard = () => {
           {activeModules.cameraSurveillance && (
             <CameraSurveillance
               onClose={() => closeModule("cameraSurveillance")}
-              initialPosition={{ x: 100, y: 100 }}
+              initialPosition={{ x: 50, y: 50 }}
             />
           )}
 
@@ -136,7 +136,7 @@ const HackerDashboard = () => {
           {activeModules.satelliteHacking && (
             <SatelliteHacking
               onClose={() => closeModule("satelliteHacking")}
-              initialPosition={{ x: 200, y: 150 }}
+              initialPosition={{ x: 200, y: 80 }}
             />
           )}
         </div>
