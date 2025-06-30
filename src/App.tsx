@@ -30,7 +30,7 @@ const App = () => {
         const welcomeTimer = setTimeout(() => {
           setLoadingStage("done");
           document.body.style.overflow = "";
-        }, 12000); // 12 seconds
+        }, 18000); // 18 seconds
         return () => clearTimeout(welcomeTimer);
       }, 8600); // 8.6 seconds
 

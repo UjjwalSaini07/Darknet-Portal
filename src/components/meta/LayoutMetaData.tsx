@@ -12,7 +12,7 @@ const metadata = {
   ogDescription:
     "Dive into the world of digital exploration and security breaches with Darknet-Portal — a cyberpunk-inspired platform packed with powerful hacking and surveillance tools.",
   ogImage: "/hack1.png",
-  ogUrl: "http://localhost:8080/",
+  ogUrl: "https://darknet-portal.vercel.app/",
   ogType: "website",
   ogLocale: "en_US",
   ogSiteName: "Darknet-Portal",
@@ -23,7 +23,7 @@ const metadata = {
   twitterImage: "/hack1.png",
   twitterSite: "@DarknetPortal",
   twitterCreator: "@UjjwalSaini0007",
-  canonical: "http://localhost:8080/",
+  canonical: "https://darknet-portal.vercel.app/",
   robots: "index, follow",
   themeColor: "#0f0f0f, #1a1a1a",
   rating: "General",

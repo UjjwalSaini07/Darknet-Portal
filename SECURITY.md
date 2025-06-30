@@ -6,7 +6,8 @@ This project is currently in the **development stage**.
 
 | Version | Support Status     |
 | ------- | ------------------ |
-| 0.1.x   | ✅ Fully Supported  |
+| 1.1.x   | ✅ Fully Supported  |
+| 1.0.0   | ✅ Fully Supported  |
 
 ## 🔐 Our Commitment to Security
 

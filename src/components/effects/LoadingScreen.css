@@ -48,6 +48,13 @@ svg text {
   text-shadow: var(--glow);
 }
 
+.footer .terminal-typing {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  color: #00ff00;
+  text-align: center;
+}
+
 .logo {
   width: 16px;
   height: 16px;

@@ -8,7 +8,7 @@
     "title": "Darknet-Portal: Cyberpunk Hacker Terminal",
     "description": "Dive into the world of digital exploration and security breaches with Darknet-Portal — a cyberpunk-inspired platform packed with powerful hacking and surveillance tools.",
     "image": "/hack1.png",
-    "url": "http://localhost:8080/",
+    "url": "https://darknet-portal.vercel.app/",
     "type": "website",
     "locale": "en_US",
     "site_name": "Darknet-Portal"
@@ -21,7 +21,7 @@
     "site": "@DarknetPortal",
     "creator": "@UjjwalSaini0007"
   },
-  "canonical": "http://localhost:8080/",
+  "canonical": "https://darknet-portal.vercel.app/",
   "robots": "index, follow",
   "themeColor": "#0f0f0f, #1a1a1a",
   "rating": "General",

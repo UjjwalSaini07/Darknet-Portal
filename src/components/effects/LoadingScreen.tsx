@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import "./LoadingScreen.css";
 
 const phrasesList = [
@@ -32,17 +33,16 @@ const shuffleArray = (array) => {
 
 const LoadingScreen = () => {
   const phrasesRef = useRef(null);
+  const footerRef = useRef(null);
 
   useEffect(() => {
-    const phrases = shuffleArray(phrasesList).slice(0, 12); // Use a few lines only
+    const phrases = shuffleArray(phrasesList).slice(0, 12);
     const phrasesGroup = phrasesRef.current;
     const lineHeight = 35;
     const checks = [];
 
     let currentY = 0;
-    let index = 0;
 
-    // Clear existing content
     phrasesGroup.innerHTML = "";
 
     phrases.forEach((phrase, i) => {
@@ -69,7 +69,7 @@ const LoadingScreen = () => {
 
       const check = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
       check.setAttribute("points", "21.661,7.643 13.396,19.328 9.429,15.361 7.075,17.714 13.745,24.384 24.345,9.708");
-      check.setAttribute("fill", "rgba(0,255,0,0)"); // Start hidden
+      check.setAttribute("fill", "rgba(0,255,0,0)");
 
       checkGroup.appendChild(circle);
       checkGroup.appendChild(circleOutline);
@@ -90,14 +90,14 @@ const LoadingScreen = () => {
       checks.push({ check, circle, offset: yOffset });
     });
 
-    const scrollSpeed = 0.7; // speed control
+    const scrollSpeed = 0.7;
 
     const animate = () => {
       currentY -= scrollSpeed;
       phrasesGroup.setAttribute("transform", `translate(0, ${currentY})`);
 
       checks.forEach((item, i) => {
-        const threshold = item.offset - 20; // when this line reaches certain Y
+        const threshold = item.offset - 20;
         if (currentY * -1 >= threshold && item.circle.getAttribute("fill") === "rgba(0,255,0,0)") {
           item.circle.setAttribute("fill", "rgba(0,255,0,0.3)");
           item.check.setAttribute("fill", "#00FF00");
@@ -110,6 +110,20 @@ const LoadingScreen = () => {
     };
 
     requestAnimationFrame(animate);
+
+    // GSAP typing animation for footer
+    if (footerRef.current) {
+      gsap.fromTo(
+        footerRef.current,
+        { text: "" },
+        {
+          duration: 3,
+          text: "Welcome to Darknet Portal",
+          ease: "power1.inOut",
+          delay: 1,
+        }
+      );
+    }
   }, []);
 
   return (
@@ -134,7 +148,7 @@ const LoadingScreen = () => {
       </div>
       <div className="footer">
         <div className="logo" />
-        Welcome Hacker Terminal
+        <div ref={footerRef} className="terminal-typing" />
       </div>
     </div>
   );
