@@ -9,6 +9,13 @@ Darknet-Portal is a cyberpunk-inspired hacker terminal site that lets you dive i
 [![Github Release](https://img.shields.io/github/v/release/UjjwalSaini07/Darknet-Portal)](https://github.com/UjjwalSaini07/Darknet-Portal)
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=28&pause=1000&color=F70707&width=850&lines=%E2%9A%A0%EF%B8%8FVisit+Darknet+Portal+At+Your+Own+Risk+%E2%9A%A0%EF%B8%8F)](https://git.io/typing-svg)
+
+> [!WARNING]
+> Do not download the ZIP file as it directly installs malware or viruses into your system. Follow the proper installation procedure as outlined in the guide if you want to install or use this safely as hosted.
+
+> [!IMPORTANT]
+> I am not responsible for anything that happens in your system if you use this. Use it at your own risk.
+
 <!--<img src="public/ReadMe/HackerSkull.gif?raw=true">-->
 ## Key Features 🎯
 - 🚀 **Cyberpunk Aesthetic:** Dive into a neon-lit, hacker-inspired interface straight out of a futuristic dystopia.
@@ -72,6 +79,8 @@ License Credential [Check](https://github.com/UjjwalSaini07/Darknet-Portal/blob/
 
 ## Feedback and Contributions 💌
 Sorry But this repository not welcome Contributions! Yes u gave a Feedback and Suggestion via raising the [Issues](https://github.com/UjjwalSaini07/Darknet-Portal/issues).
+
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Playfair&weight=600&size=35&pause=1000&color=00F741&multiline=true&width=950&height=130&lines=I+am+not+responsible+for+anything+that+happens+in+your+system;+if+you+use+darknet+portal.+Use+it+at+your+own+risk.)](https://git.io/typing-svg)
 
 <div align="center">
     <a href="#top">
