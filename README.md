@@ -64,6 +64,7 @@ You can visit the live site here - https://darknet-portal.vercel.app/
 - Open your browser and navigate to http://localhost:8080 to view the localhost website
 
 ## Screenshot:
+![image](https://github.com/user-attachments/assets/8bfc3a3a-1879-40ff-9e02-ecc9d0f006ee)
 
 ## Author
 - [@Ujjwal Saini](https://github.com/UjjwalSaini07)
