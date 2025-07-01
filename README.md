@@ -63,8 +63,34 @@ You can visit the live site here - https://darknet-portal.vercel.app/
  ```
 - Open your browser and navigate to http://localhost:8080 to view the localhost website
 
+## Project Setup Using Docker Containerization:
+1. Start the Docker Engine Locally or Use Any Service
+2. Navigate to the project Root directory:
+```bash
+    cd Darknet-Portal
+```
+3. Run DockerFile:
+```bash
+    docker-compose up --build
+```
+4. Wait for Generating the Image
+
+#### How Docker Image Builds Looks
+
+![image](https://github.com/user-attachments/assets/9a327192-6280-4f36-b811-8378273472b6)
+
+#### Project Docker Container
+
+![image](https://github.com/user-attachments/assets/161ce749-f776-464d-a721-19e19a708d6a)
+
+5. Now Simply use the Project using Docker Container
+6. **If u Want Direct Image Without Cloning So Contact with Me.**
+
 ## Screenshot:
-![image](https://github.com/user-attachments/assets/8bfc3a3a-1879-40ff-9e02-ecc9d0f006ee)
+![image](https://github.com/user-attachments/assets/e9124376-a607-40b4-b9be-c2414deeaa40)
+![image](https://github.com/user-attachments/assets/d497c2cc-246b-4267-ba39-8ec64fd40714)
+![image](https://github.com/user-attachments/assets/8c862030-a48f-42d9-9b1a-6296be8b69f7)
+![image](https://github.com/user-attachments/assets/312441d2-2c1f-4653-98be-72aa944dc7a1)
 
 ## Author
 - [@Ujjwal Saini](https://github.com/UjjwalSaini07)
