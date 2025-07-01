@@ -86,7 +86,7 @@ const HackerDashboard = () => {
         <div className="h-10 bg-black border-b-2 border-matrix-green flex items-center justify-between px-4 terminal-glow">
           <div className="flex items-center space-x-6">
             <span className="text-lg font-bold terminal-glow">
-              DARKNET_TERMINAL v1.1.0 [CLASSIFIED]
+              DARKNET_TERMINAL v1.3.0 [CLASSIFIED]
             </span>
             <span className="text-sm text-matrix-green">
               [{currentTime.toLocaleTimeString()}] [UTC+5:30] [SECURE_MODE]

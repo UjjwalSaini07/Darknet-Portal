@@ -379,7 +379,7 @@ const BitcoinMiner = ({ onClose, initialPosition }: BitcoinMinerProps) => {
                   ≈ ${usdValue.toLocaleString()}
                 </div>
                 <div className="text-sm mt-2 opacity-80">
-                  Daily Profit: +$2,847 📈
+                  Daily Profit: +$2,847
                 </div>
               </div>
             </div>
