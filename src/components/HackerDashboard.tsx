@@ -128,7 +128,7 @@ const HackerDashboard = () => {
           {activeModules.cameraSurveillance && (
             <CameraSurveillance
               onClose={() => closeModule("cameraSurveillance")}
-              initialPosition={{ x: 50, y: 50 }}
+              initialPosition={{ x: 20, y: 25 }}
             />
           )}
 
