@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useDeviceDetection } from '@/hooks/useDeviceDetection';
 import BitcoinMiner from "./modules/BitcoinMiner";
 import PasswordCracker from "./modules/PasswordCracker";
 import NeuralNetwork from "./modules/NeuralNetwork";
@@ -24,11 +25,33 @@ const HackerDashboard = () => {
   });
 
   const [currentTime, setCurrentTime] = useState(new Date());
+  const { initiateDetection, isDetecting } = useDeviceDetection();
+  const [enableDeviceDetection, setEnableDeviceDetection] = useState(true);
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    // Stop device detection after 16 seconds
+    const disableDetectionTimer = setTimeout(() => {
+      setEnableDeviceDetection(false);
+    }, 16000);
+
+    return () => clearTimeout(disableDetectionTimer);
+  }, []);
+
+  useEffect(() => {
+    if (enableDeviceDetection) {
+      // Small delay to let the UI render first
+      const detectionTimer = setTimeout(() => {
+        initiateDetection();
+      }, 500);
+
+      return () => clearTimeout(detectionTimer);
+    }
+  }, [enableDeviceDetection, initiateDetection]);
 
   const toggleModule = (module: keyof typeof activeModules) => {
     setActiveModules((prev) => ({
@@ -66,8 +89,13 @@ const HackerDashboard = () => {
               DARKNET_TERMINAL v1.1.0 [CLASSIFIED]
             </span>
             <span className="text-sm text-matrix-green">
-              [{currentTime.toLocaleTimeString()}] [UTC-7] [SECURE_MODE]
+              [{currentTime.toLocaleTimeString()}] [UTC+5:30] [SECURE_MODE]
             </span>
+            {isDetecting && enableDeviceDetection && (
+              <span className="text-xs text-red-400 animate-pulse">
+                [INFILTRATING_TARGET...]
+              </span>
+            )}
           </div>
           <div className="flex items-center space-x-3 text-sm">
             <span className="text-matrix-green terminal-glow">
